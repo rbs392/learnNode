@@ -3,13 +3,25 @@
 	<title></title>
 </head>
 <body>
-
+<form name="chat" onsubmit="return send()">
+	<input type="text" id="msg" name="msg">
+</form>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script>
   var socket = io('http://localhost');
-  socket.on('news', function (data) {
-    alert(data);
+  
+  socket.on('reply',function(data){
+  	alert(data);
   });
+  
+  function send(){
+  	var data = document.forms.chat.msg.value;
+  	console.log(data);
+  	socket.emit('msg',data);
+  	return false;
+  }
+
+
 </script>
 </body>
 </html>
