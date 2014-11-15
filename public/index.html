@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script>
+  var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    alert(data);
+  });
+</script>
+</body>
+</html>
